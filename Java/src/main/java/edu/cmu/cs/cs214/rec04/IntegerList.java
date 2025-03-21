@@ -58,6 +58,4 @@ public interface IntegerList {
      * @return number of elements in the list
      */
     public int size();
-
-
 }

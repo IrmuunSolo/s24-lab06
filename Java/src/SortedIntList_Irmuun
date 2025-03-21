@@ -1,0 +1,55 @@
+package main.java.edu;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+import edu.cmu.cs.cs214.rec04.AbstractIntList;
+import edu.cmu.cs.cs214.rec04.IntegerList;
+
+/*
+ * SortedIntLists.jar гэсэн файл байсныг ашиглалгүйгээр энэ классыг хэрэггүй бичсэн ЛОЛ
+ */
+
+/**
+ * SortedIntList -- өсөх дараалалтайгаар ангилсан int тоон жагсаалт.
+ * Энэ класс нь AbstractIntList-ээс удамшсан ба IntegerList interface-ийг хэрэгжүүлсэн
+ * Давхардсан элементүүдийг хадгалдаг.
+ */
+public class SortedIntList extends AbstractIntList {
+
+    private final ArrayList<Integer> list;
+
+    public SortedIntList() {
+        this.list = new ArrayList<>();
+    }
+
+    public boolean add(int num) {
+        int index = Collections.binarySearch(list, num);
+        if (index < 0) {
+            index = -(index + 1);
+        }
+        list.add(index, num);
+        return true;
+    }
+
+    
+    public int get(int index) {
+        return list.get(index);
+    }
+
+    public boolean remove(int num) {
+        return list.remove((Integer) num);
+    }
+
+    public boolean removeAll(IntegerList list) {
+        boolean changed = false;
+        for (int i = 0; i < list.size(); i++) {
+            changed |= list.remove((Integer) list.get(i));
+        }
+        return changed;
+    }
+
+    public int size() {
+        return list.size();
+    }
+} 

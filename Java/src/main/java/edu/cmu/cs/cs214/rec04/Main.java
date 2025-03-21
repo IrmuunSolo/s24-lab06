@@ -5,6 +5,8 @@ package edu.cmu.cs.cs214.rec04;
  * @author Nora Shoemaker
  *
  */
+/* Ажиллуулах: java -cp target/17214-22fall-rec05-1.0-SNAPSHOT.jar edu.cmu.cs.cs214.rec04.Main */
+
 public class Main {
 
     public static void main(String[] args) {
@@ -16,32 +18,29 @@ public class Main {
          * Feel free to write more to test your implementation. 
          * */
 
-        // IntegerList list1;
-        // SortedIntList list2;
+        IntegerList list1 = new DelegationSortedIntList();
+        SortedIntList list2 = new InheritanceSortedIntList();
 
-        // list1 = new DelegationSortedIntList();
-        // list2 = new InheritanceSortedIntList();
+        // add 5 elements to our first list.
+        list1.add(1);
+        list1.add(3);
+        list1.add(2);
+        list1.add(4);
+        list1.add(2);
 
-        // // add 5 elements to our first list.
-        // list1.add(1);
-        // list1.add(3);
-        // list1.add(2);
-        // list1.add(4);
-        // list1.add(2);
+        printList(list1);
+        System.out.println(((DelegationSortedIntList) list1).getTotalAdded());
 
-        // printList(list1);
-        // System.out.println(list1.getTotalAdded());
-
-        // // add 2 elements to a second list.
-        // list2.add(3);
-        // list2.add(0);
+        // add 2 elements to a second list.
+        list2.add(3);
+        list2.add(0);
 
 
-        // // add the first list (5 elements) to our second list (2 elements).
-        // list2.addAll(list1);
+        // add the first list (5 elements) to our second list (2 elements).
+        list2.addAll(list1);
 
-        // printList(list2);
-        // System.out.println(list2.getTotalAdded());
+        printList(list2);
+        System.out.println(((InheritanceSortedIntList) list2).getTotalAdded());
     }
 
     /**
