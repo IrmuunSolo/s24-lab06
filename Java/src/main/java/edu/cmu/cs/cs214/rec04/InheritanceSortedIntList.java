@@ -24,9 +24,8 @@ public class InheritanceSortedIntList extends SortedIntList{
      */
     public boolean add(int num) {
         boolean result = super.add(num);
-        if (result) {
             totalAdded++;
-        }
+
         return result;
     }
 
@@ -34,9 +33,7 @@ public class InheritanceSortedIntList extends SortedIntList{
     public boolean addAll(IntegerList list) {
         boolean changed = false;
         for (int i = 0; i < list.size(); i++) {
-            if (add(list.get(i))) {
-                changed = true;
-            }
+            changed = add(list.get(i));
         }
         return changed;
     }

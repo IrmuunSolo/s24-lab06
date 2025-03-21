@@ -23,9 +23,7 @@ package edu.cmu.cs.cs214.rec04;
 
     public boolean add(int num) {
         boolean result = sortedList.add(num);
-        if (result) {
             totalAdded++;
-        }
         return result;
     }
 
